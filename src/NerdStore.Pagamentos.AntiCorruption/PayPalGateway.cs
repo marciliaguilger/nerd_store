@@ -8,8 +8,8 @@ namespace NerdStore.Pagamentos.AntiCorruption
         //As implementações são simulações
         public bool CommitTransaction(string cardHashKey, string orderId, decimal amount)
         {
-            return new Random().Next(2) == 0; //vai sortear numeros de 0 a 2 -> sorteio de pagamento
-            //return false;
+            //return new Random().Next(2) == 0; //vai sortear numeros de 0 a 2 -> sorteio de pagamento
+            return false;
         }
 
         public string GetCardHashKey(string serviceKey, string cartaoCredito)
