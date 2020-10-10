@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using EventSourcing;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NerdStore.Catalogo.Application.Services;
 using NerdStore.Catalogo.Data;
@@ -31,6 +32,9 @@ namespace NerdStore.WebApp.MVC.Setup
 
             //Notifications
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
+
+            //Event sourcing
+            services.AddSingleton<IEventStoreService, EventStoreService>(); //vai ficar valida para toda a aplicação enquanto a mesma estiver no ar
 
             //Catalogo
             // foi feito aqui pq a responsabilidade de resolver as dependencias fica fora da infra
