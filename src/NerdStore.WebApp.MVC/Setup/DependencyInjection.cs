@@ -7,6 +7,7 @@ using NerdStore.Catalogo.Data.Repository;
 using NerdStore.Catalogo.Domain;
 using NerdStore.Catalogo.Domain.Events;
 using NerdStore.Core.Communication.Mediator;
+using NerdStore.Core.Data.EventSourcing;
 using NerdStore.Core.Messages.CommonMessages.IntegrationEvents;
 using NerdStore.Core.Messages.CommonMessages.Notifications;
 using NerdStore.Pagamentos.AntiCorruption;
@@ -35,6 +36,7 @@ namespace NerdStore.WebApp.MVC.Setup
 
             //Event sourcing
             services.AddSingleton<IEventStoreService, EventStoreService>(); //vai ficar valida para toda a aplicação enquanto a mesma estiver no ar
+            services.AddSingleton<IEventSourcingRepository, EventSourcingRepository>(); 
 
             //Catalogo
             // foi feito aqui pq a responsabilidade de resolver as dependencias fica fora da infra
